@@ -51,7 +51,7 @@
 ###
 
 <div align="center">
-  [![GitHub Streak](https://streak-stats.demolab.com?user=GOSCHEN&theme=catppuccin-macchiato&hide_border=true&locale=de&short_numbers=true&date_format=j%20M%5B%20Y%5D&mode=weekly&exclude_days=Sun%2CSat)](https://git.io/streak-stats)
+  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com/?user=GOSCHEN&theme=catppuccin-macchiato&hide_border=true&locale=de&short_numbers=true&date_format=j%20M%5B%20Y%5D&mode=weekly" alt="GitHub Streak" /></a>
 </div>
 
 ###
