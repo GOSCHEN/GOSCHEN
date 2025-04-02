@@ -51,7 +51,7 @@
 ###
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=GOSCHEN&locale=en&mode=weekly&theme=codeSTACKr&hide_border=true&border_radius=5&date_format=j%20M%5B%20Y%5D&order=3" height="220" alt="streak graph"  />
+  [![GitHub Streak](https://streak-stats.demolab.com?user=GOSCHEN&theme=catppuccin-macchiato&hide_border=true&locale=de&short_numbers=true&date_format=j%20M%5B%20Y%5D&mode=weekly&exclude_days=Sun%2CSat)](https://git.io/streak-stats)
 </div>
 
 ###
