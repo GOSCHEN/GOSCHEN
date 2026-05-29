@@ -1,0 +1,46 @@
+name: Generate pacman contribution graph
+
+on:
+  schedule: # execute every 12 hours, on the hour (mirrors the snake workflow)
+    - cron: "0 */12 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+    - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write # needed by the publish step to push to the output-pacman branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # The action only WRITES SVGs into ./dist (it does not self-publish).
+      # It emits a light + dark pair per game, e.g.:
+      #   dist/pacman-contribution-graph.svg       (light)
+      #   dist/pacman-contribution-graph-dark.svg  (dark)
+      # The README embeds the dark variant to stay consistent with the
+      # snake animation's github-dark palette. There is no theme/palette
+      # input on this action; theming is fixed and selected by file choice.
+      - name: generate pacman-contribution-graph.svg
+        uses: abozanona/pacman-contribution-graph@v5.0.0 # pinned for reproducibility (docs use @main, a moving branch)
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: pacman # default; only the Pac-Man game is needed here
+          player_style: opportunistic # default AI behaviour
+
+      # Push the generated SVGs from dist/ to a DEDICATED branch.
+      # Deliberately NOT the snake's "output" branch: ghaction-github-pages syncs
+      # the target branch tree to build_dir, so sharing a branch would make each
+      # workflow delete the other's SVGs on every run. A separate branch keeps them
+      # independent and lets the default (force) push stay safe.
+      - name: push pacman SVGs to the output-pacman branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output-pacman
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

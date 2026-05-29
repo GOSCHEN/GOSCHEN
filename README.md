@@ -56,6 +56,6 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/GOSCHEN/GOSCHEN/output/snake.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/GOSCHEN/GOSCHEN/output-pacman/pacman-contribution-graph-dark.svg" alt="Pac-Man contribution graph" />
 
 ###
